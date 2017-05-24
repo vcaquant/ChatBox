@@ -18,8 +18,11 @@ class Connexion extends React.Component {
                         type="text"
                         placeholder="Pseudo"
                         required
-                        ref={input => {this.pseudoInput = input}}/>
-                    <input type="password" placeholder="Password" required/>
+                        ref={input => {this.pseudoInput = input}} />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        required />
                     <button type="submit">OK</button>
                 </form>
             </div>

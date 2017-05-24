@@ -1,16 +1,25 @@
 import React from 'react';
 import Formulaire from './Formulaire';
 import Message from './Message';
+import base from '../Base';
 
 class App extends React.Component {
     state = {
         messages: {}
     }
 
+    componentWillMount() {
+        this.ref = base.syncState('/Messages', {
+            context: this,
+            state: 'messages'
+        });
+    }
+
     addMessage = message => {
         const messages = {...this.state.messages};
         const timestamp = Date.now();
         messages[`message-${timestamp}`] = message;
+        Object.keys(messages).slice(0, -15).map(key => messages[key] = null);
         this.setState({ messages });
     };
 
