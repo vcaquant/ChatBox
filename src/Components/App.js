@@ -1,7 +1,11 @@
 import React from 'react';
+// Component
 import Formulaire from './Formulaire';
 import Message from './Message';
 import base from '../Base';
+// CSS
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import '../animation.css';
 
 class App extends React.Component {
     state = {
@@ -15,6 +19,10 @@ class App extends React.Component {
         });
     }
 
+    componentDidUpdate() {
+        this.messages.scrollTop = this.messages.scrollHeight;
+    }
+
     addMessage = message => {
         const messages = {...this.state.messages};
         const timestamp = Date.now();
@@ -23,18 +31,30 @@ class App extends React.Component {
         this.setState({ messages });
     };
 
+    isUser = pseudo => {
+        return pseudo === this.props.params.pseudo;
+    };
+
     render() {
 
         const messages = Object
             .keys(this.state.messages)
             .map(key => <Message
                 key={key}
-                details={this.state.messages[key]} />)
+                details={this.state.messages[key]}
+                isUser={this.isUser}/>)
         return (
             <div className="box">
                 <div>
-                    <div className="messages">
-                        { messages }
+                    <div className="messages" ref={ input => this.messages = input }>
+                        <ReactCSSTransitionGroup
+                            component="div"
+                            className="message"
+                            transitionName="message"
+                            transitionEnterTimeout={200}
+                            transitionLeaveTimeout={200}>
+                            {messages}
+                        </ReactCSSTransitionGroup>
                     </div>
                     <Formulaire
                         addMessage={this.addMessage}
