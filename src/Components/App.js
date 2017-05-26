@@ -59,10 +59,14 @@ class App extends React.Component {
                     <Formulaire
                         addMessage={this.addMessage}
                         pseudo={this.props.params.pseudo}
-                        length="140" />
+                        length={140} />
                 </div>
             </div>
         )
+    }
+
+    static propTypes = {
+        params: React.PropTypes.object.isRequired
     }
 }
 
