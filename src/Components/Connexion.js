@@ -1,6 +1,7 @@
 import React from 'react';
 
 class Connexion extends React.Component {
+
     goToChat = event => {
         event.preventDefault();
         const pseudo = this.pseudoInput.value;
@@ -28,6 +29,7 @@ class Connexion extends React.Component {
             </div>
         )
     }
+    
     static contextTypes = {
         router: React.PropTypes.object
     }
