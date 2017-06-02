@@ -8,6 +8,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../animation.css';
 
 class App extends React.Component {
+    
     state = {
         messages: {}
     }

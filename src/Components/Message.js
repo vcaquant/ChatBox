@@ -13,7 +13,7 @@ class Message extends React.Component {
         else {
             return (
                 <p className="not-user-message">
-                    <strong>{this.props.details.pseudo}</strong>:
+                    <strong>{this.props.details.pseudo}</strong>: 
                         {this.props.details.message}
                 </p>
             )
