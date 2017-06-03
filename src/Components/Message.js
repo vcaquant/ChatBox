@@ -16,10 +16,10 @@ class Message extends React.Component {
         }
         else {
             return (
-                <p className="not-user-message">
+                <div className="not-user-message">
                     <strong>{this.props.details.pseudo}</strong>:
                         <p dangerouslySetInnerHTML={this.renderText(this.props.details.message)} />
-                </p>
+                </div>
             )
         }
     };
