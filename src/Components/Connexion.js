@@ -24,7 +24,6 @@ class Connexion extends React.Component {
         const pseudo = this.pseudoInput.value;
         const pw = this.pwInput.value;
         const users = {...this.state.users};
-        const timestamp = Date.now();
         for (var key in users) {
             if (pseudo === users[key].pseudo) {
                 if (users[key].pw === pw) {
@@ -41,7 +40,7 @@ class Connexion extends React.Component {
             pseudo: pseudo,
             pw: pw
         };
-        users[`user-${timestamp}`] = user;
+        users[`user-${pseudo}`] = user;
         this.setState({ users });
         this.goToChat(event);
     };
@@ -53,17 +52,28 @@ class Connexion extends React.Component {
                     <div className="center">
                         <img src="logo.png" alt="logo" height="200" width="200"/>
                     </div>
-                    <input
-                        type="text"
-                        placeholder="Pseudo"
-                        required
-                        ref={input => {this.pseudoInput = input}} />
-                    <input
-                        type="password"
-                        placeholder="Password (Non protégé)"
-                        required
-                        ref={input => {this.pwInput = input}} />
-                    <button type="submit">OK</button>
+                    <div className="inner-addon left-addon">
+                        <i className="glyphicon glyphicon-user"></i>
+                        <input
+                            className="input"
+                            type="text"
+                            placeholder="Pseudo"
+                            required
+                            ref={input => {this.pseudoInput = input}} />
+                    </div>
+                    <div className="inner-addon left-addon">
+                        <i className="glyphicon glyphicon-lock"></i>
+                        <input
+                            className="input"
+                            type="password"
+                            placeholder="Password (Not Protected)"
+                            required
+                            ref={input => {this.pwInput = input}} />
+                    </div>
+                    <button type="submit">
+                        <div className="inner-addon right-addon">
+                        <span className="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+                        </div>Sign In</button>
                 </form>
             </div>
         )
