@@ -8,7 +8,7 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import '../animation.css';
 
 class App extends React.Component {
-    
+
     state = {
         messages: {}
     }
@@ -23,6 +23,11 @@ class App extends React.Component {
     componentDidUpdate() {
         this.messages.scrollTop = this.messages.scrollHeight;
     }
+
+    deconnexion = event => {
+        event.preventDefault();
+        this.context.router.transitionTo('/');
+    };
 
     addMessage = message => {
         const messages = {...this.state.messages};
@@ -47,7 +52,7 @@ class App extends React.Component {
         return (
             <div className="box">
                 <div>
-                    <div className="messages" ref={ input => this.messages = input }>
+                    <div className="messages" ref={ input => this.messages = input } >
                         <ReactCSSTransitionGroup
                             component="div"
                             className="message"
@@ -61,6 +66,9 @@ class App extends React.Component {
                         addMessage={this.addMessage}
                         pseudo={this.props.params.pseudo}
                         length={140} />
+                    <div onClick={e => this.deconnexion(e)}>
+                        <button type="submit">Logout</button>
+                    </div>
                 </div>
             </div>
         )
@@ -68,6 +76,10 @@ class App extends React.Component {
 
     static propTypes = {
         params: React.PropTypes.object.isRequired
+    }
+
+    static contextTypes = {
+        router: React.PropTypes.object
     }
 }
 
