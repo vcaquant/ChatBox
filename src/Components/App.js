@@ -51,7 +51,7 @@ class App extends React.Component {
                 isUser={this.isUser}/>)
         return (
             <div className="box">
-                <div>
+                <div className="forn">
                     <div className="messages" ref={ input => this.messages = input } >
                         <ReactCSSTransitionGroup
                             component="div"
@@ -66,9 +66,10 @@ class App extends React.Component {
                         addMessage={this.addMessage}
                         pseudo={this.props.params.pseudo}
                         length={140} />
-                    <div onClick={e => this.deconnexion(e)}>
-                        <button type="submit">Logout</button>
-                    </div>
+
+                </div>
+                <div onClick={e => this.deconnexion(e)} className="deconnexion">
+                    <button type="submit">Logout</button>
                 </div>
             </div>
         )

@@ -49,8 +49,8 @@ class Connexion extends React.Component {
         return (
             <div className="connexionBox" onSubmit={e => this.verification(e)} >
                 <form className="connexion">
-                    <div className="center">
-                        <img src="logo.png" alt="logo" height="200" width="200"/>
+                    <div className="center image-logo">
+                        <img src="logo.png" alt="logo" height="75%" width="75%"/>
                     </div>
                     <div className="inner-addon left-addon">
                         <i className="glyphicon glyphicon-user"></i>

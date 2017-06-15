@@ -63,17 +63,24 @@ body {
 	min-height: 100vh;
 }
 
+.image-logo {
+	margin-top: -30%;
+}
+
 .center {
 	text-align: center;
 }
 
 .connexion {
-	max-width: 500px;
-	font-size: 24px;
+	max-height: 100%;
+	max-width: 50%;
+	font-size: 120%;
 }
+
 .connexion > * {
 	width: 100%;
 }
+
 .connexion > input {
 	margin-bottom: 35px;
 	border: none;
@@ -90,7 +97,7 @@ body {
 }
 
 .input {
-	width: 500px;
+	width: 100%;
 	margin-bottom: 35px;
 	border: none;
     border-bottom: 1px solid white;
@@ -102,19 +109,29 @@ body {
 
 .box {
 	margin: auto;
+	margin-left: 25%;
 	display:flex;
 	justify-content: center;
  	flex-wrap: wrap;
  	align-items: flex-end;
-	width: 100%;
-	max-width: 500px;
+	/* max-width: 50%; */
 	height: calc(100vh - 10px);
-	padding: 50px 0;
+	padding: 50px 50px;
 	/* border: 5px solid purple; */
 }
 
 .box > * {
 	width: 100%;
+}
+
+.forn {
+	max-width: 75%;
+	margin-left: -15%;
+}
+
+.deconnexion {
+	width: 25%;
+	text-align: right;
 }
 
 /* ----------------------------
